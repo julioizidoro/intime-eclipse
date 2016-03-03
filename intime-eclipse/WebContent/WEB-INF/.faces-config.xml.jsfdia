@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:*" PATH="*" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:0" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="index::index.xhtml" NAME="output"
+    PATH="index.xhtml" TARGET="rules:index.xhtml" TITLE="index" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:index.xhtml" PATH="index.xhtml"
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:1" PATH="*" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:1" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="inicial::#pages#tarefas#inicial.xhtml"
+    NAME="output" PATH="/pages/tarefas/inicial.xhtml"
+    TARGET="rules:#pages#tarefas#inicial.xhtml" TITLE="inicial" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#tarefas#inicial.xhtml"
+  PATH="/pages/tarefas/inicial.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:2" PATH="*" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:2" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="consDepartamento::#pages#departamento#consDepartamento.xhtml"
+    NAME="output" PATH="/pages/departamento/consDepartamento.xhtml"
+    TARGET="rules:#pages#departamento#consDepartamento.xhtml"
+    TITLE="consDepartamento" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#cliente#consCliente.xhtml"
+  PATH="/pages/cliente/consCliente.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:3" PATH="*" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:3" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="consSubdepartamento::#pages#subdepartamento#consSubdepartamento.xhtml"
+    NAME="output"
+    PATH="/pages/subdepartamento/consSubdepartamento.xhtml"
+    TARGET="rules:#pages#subdepartamento#consSubdepartamento.xhtml"
+    TITLE="consSubdepartamento" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#departamento#consDepartamento.xhtml"
+  PATH="/pages/departamento/consDepartamento.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:4" PATH="*" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:4" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="consRotina::#pages#rotina#consRotina.xhtml"
+    NAME="output" PATH="/pages/rotina/consRotina.xhtml"
+    TARGET="rules:#pages#rotina#consRotina.xhtml" TITLE="consRotina" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#pages#subdepartamento#consSubdepartamento.xhtml"
+  PATH="/pages/subdepartamento/consSubdepartamento.xhtml"
+  SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:5" PATH="*" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:5" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="consUsuario::#pages#usuario#consUsuario.xhtml" NAME="output"
+    PATH="/pages/usuario/consUsuario.xhtml"
+    TARGET="rules:#pages#usuario#consUsuario.xhtml" TITLE="consUsuario" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#rotina#consRotina.xhtml"
+  PATH="/pages/rotina/consRotina.xhtml" SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:6" PATH="*" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:6" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="consPerfil::#pages#perfil#consPerfil.xhtml"
+    NAME="output" PATH="/pages/perfil/consPerfil.xhtml"
+    TARGET="rules:#pages#perfil#consPerfil.xhtml" TITLE="consPerfil" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#usuario#consUsuario.xhtml"
+  PATH="/pages/usuario/consUsuario.xhtml" SHAPE="240,929,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:7" PATH="*" SHAPE="32,913,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:7" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="consProcessos::#pages#processos#consProcessos.xhtml"
+    NAME="output" PATH="/pages/processos/consProcessos.xhtml"
+    TARGET="rules:#pages#processos#consProcessos.xhtml"
+    TITLE="consProcessos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#perfil#consPerfil.xhtml"
+  PATH="/pages/perfil/consPerfil.xhtml" SHAPE="240,1041,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:8" PATH="*" SHAPE="32,1025,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:8" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="consProjeto::#pages#projeto#consProjeto.xhtml" NAME="output"
+    PATH="/pages/projeto/consProjeto.xhtml"
+    TARGET="rules:#pages#projeto#consProjeto.xhtml" TITLE="consProjeto" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#processos#consProcessos.xhtml"
+  PATH="/pages/processos/consProcessos.xhtml" SHAPE="240,1153,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:9" PATH="*" SHAPE="32,1137,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:9" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="consCliente::#pages#cliente#consCliente.xhtml" NAME="output"
+    PATH="/pages/cliente/consCliente.xhtml"
+    TARGET="rules:#pages#cliente#consCliente.xhtml" TITLE="consCliente" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#projeto#consProjeto.xhtml"
+  PATH="/pages/projeto/consProjeto.xhtml" SHAPE="240,1265,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>
