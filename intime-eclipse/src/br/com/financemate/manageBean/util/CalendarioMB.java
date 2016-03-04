@@ -1,10 +1,8 @@
 package br.com.financemate.manageBean.util;
 
 import br.com.financemate.manageBean.atividades.ListaAtividadesMB;
-import br.com.financemate.model.Atividades;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -14,7 +12,6 @@ import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultScheduleEvent;
-import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.ScheduleEvent;
 import org.primefaces.model.ScheduleModel;
 

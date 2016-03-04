@@ -26,6 +26,7 @@ import org.primefaces.context.RequestContext;
  *
  * @author Kamila
  */
+
 @Named
 @SessionScoped
 public class UsuarioLogadoMB implements Serializable{

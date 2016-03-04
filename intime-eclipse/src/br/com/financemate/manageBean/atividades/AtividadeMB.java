@@ -36,10 +36,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.http.HttpSession;
 import org.primefaces.context.RequestContext;
 
 /**
@@ -48,7 +46,7 @@ import org.primefaces.context.RequestContext;
  */
 @Named("AtividadeMB")
 @SessionScoped
-public class AtividadeMB implements Serializable{
+public class AtividadeMB implements Serializable {
     
     /**
 	 * 
