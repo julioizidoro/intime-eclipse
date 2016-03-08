@@ -264,7 +264,7 @@ public class CadAtividadeMB implements Serializable{
     public void salvarUsuarioAtividade() {
         
         NotificacaoFacade notificacaoFacade = new NotificacaoFacade();
-        String texto="";
+        String texto=usuarioLogadoBean.getUsuario().getNome() + " criou uma nova tarefa.";
         int idUsuarioLogado = usuarioLogadoBean.getUsuario().getIdusuario();
         int idUsuarioAtividade = usuario.getIdusuario();
         if (idUsuarioAtividade!=idUsuarioLogado) {

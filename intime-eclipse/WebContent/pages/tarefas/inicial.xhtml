@@ -19,7 +19,7 @@
                     <br></br>
                     <p:contextMenu for="tabelaAtividades" style="font-size: 12px;">
                         <p:menuitem value="Encaminhar"  icon="ui-icon-arrowreturnthick-1-e" action="#{AtividadeMB.encaminharTarefa(AtividadeMB.atividades)}"  update=":encaminharTarefa:dialog_encaminarTarefa" oncomplete="PF('encaminharTarefa').show()" />
-                        <p:menuitem value="Excluir"  icon="ui-icon-trash" action="#{AtividadeMB.excluir(tarefas)}"  />
+                        <p:menuitem value="Excluir"  icon="ui-icon-trash" action="#{AtividadeMB.excluir()}" update="@all" />
                     </p:contextMenu><br></br><br></br>
                     <p:dataTable id="tabelaAtividades"  var="tarefas" value="#{AtividadeMB.listaAtividadesGeral}" class="dataGrid"   rowStyleClass="#{AtividadeMB.atrasadas(tarefas) eq 'normal' ? 'letraPreta' : 
                                                                                AtividadeMB.atrasadas(tarefas) eq 'atrasado' ? 'letraVermelha' :

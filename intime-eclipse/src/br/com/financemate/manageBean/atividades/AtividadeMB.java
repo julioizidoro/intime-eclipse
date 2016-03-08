@@ -599,6 +599,9 @@ public class AtividadeMB implements Serializable {
     }
     
     public String imagem(Atividades atividade) {
+    	if (atividade.getPrioridade()==null){
+    		atividade.setPrioridade("3-normal");
+    	}
         if (atividade.getPrioridade().equalsIgnoreCase("1-urgente")) {
             return "/resources/img/prioridadeUrgente.png";
         } else if (atividade.getPrioridade().equalsIgnoreCase("2-alta")) {
@@ -907,31 +910,34 @@ public class AtividadeMB implements Serializable {
     }
     
     
-    public String excluir(Atividades atividades){
+    public String excluir(){
         AtividadeFacade atividadeFacade = new AtividadeFacade();
         atividadeFacade.Excluir(atividades.getIdatividades());
         FacesMessage mensagem = new FacesMessage("Sucesso! ", "Atividade Excluída");
         FacesContext.getCurrentInstance().addMessage(null, mensagem);
         listaAtividadesGeral.remove(atividades);
+        listaAtividadesMB.gerarNumeroAtividades();
         return "inicial";
     }
     
-    public String excluirAtrasadas(Atividades atividades){
+    public String excluirAtrasadas(){
         AtividadeFacade atividadeFacade = new AtividadeFacade();
         atividadeFacade.Excluir(atividades.getIdatividades());
         FacesMessage mensagem = new FacesMessage("Sucesso! ", "Atividade Excluída");
         FacesContext.getCurrentInstance().addMessage(null, mensagem);
         listaAtividadesMB.getListaAtividadeAtrasada().remove(atividades);
         listaAtividadesGeral.remove(atividades);
+        listaAtividadesMB.gerarNumeroAtividades();
         return "";
     }
     
-    public String excluirTodas(Atividades atividades){
+    public String excluirTodas(){
         AtividadeFacade atividadeFacade = new AtividadeFacade();
         atividadeFacade.Excluir(atividades.getIdatividades());
         FacesMessage mensagem = new FacesMessage("Sucesso! ", "Atividade Excluída");
         FacesContext.getCurrentInstance().addMessage(null, mensagem);
         listaAtividadesGeral.remove(atividades);
+        listaAtividadesMB.gerarNumeroAtividades();
         return "";
     }
     
@@ -1125,7 +1131,7 @@ public class AtividadeMB implements Serializable {
         notificacao = new Notificacao();
         notificacao.setLido(false);
         notificacao.setUsuario(usuario);
-        texto = usuarioLogadoBean.getUsuario().getNome() + " Criou uma nova tarefa.";
+        texto = usuarioLogadoBean.getUsuario().getNome() + " encaminhou uma tarefa.";
         notificacao.setTexto(texto);
         notificacaoFacade.salvar(notificacao);
          listaAtividadesMB.gerarLitaAtividades();

@@ -35,6 +35,15 @@
 	<navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
+			<from-outcome>informacoes</from-outcome>
+			<to-view-id>/pages/informacao/informacoes.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
 			<from-outcome>consSubdepartamento</from-outcome>
 			<to-view-id>/pages/subdepartamento/consSubdepartamento.xhtml</to-view-id>
 			<redirect />

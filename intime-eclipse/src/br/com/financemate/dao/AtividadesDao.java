@@ -28,6 +28,9 @@ public class AtividadesDao {
     public Atividades salvar(Atividades atividades) throws SQLException{
         EntityManager manager = ConectionFactory.getConnection();
         manager.getTransaction().begin();
+        if (atividades.getPrioridade()==null){
+        	atividades.setPrioridade("3-normal");
+        }
         atividades = manager.merge(atividades);
         manager.getTransaction().commit();
         return atividades;

@@ -19,7 +19,7 @@
                    <br></br>
                    <p:contextMenu for="tabelaAtividades">
                         <p:menuitem value="Encaminhar"  icon="ui-icon-arrowreturnthick-1-e"  action="#" />
-                        <p:menuitem value="Excluir"  icon="ui-icon-trash" action="#{AtividadeMB.excluirAtrasadas(tarefas)}"  />
+                        <p:menuitem value="Excluir"  icon="ui-icon-trash" action="#{AtividadeMB.excluirAtrasadas()}"   update="@all"/>
                     </p:contextMenu><br></br><br></br>
                     <p:dataTable id="tabelaAtividades" var="tarefas" value="#{AtividadeMB.listaAtividadesGeral}" class="dataGrid"  rowStyleClass="#{AtividadeMB.atrasadas(tarefas)  eq 'atrasado' ? 'letraPreta' : null}" 
                                  editable="true" editMode="cell" rowIndexVar="rowIx" 
