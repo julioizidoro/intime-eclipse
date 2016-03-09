@@ -4,6 +4,7 @@ import br.com.financemate.model.Projeto;
 import br.com.financemate.util.GerarRelatorio;
 import java.io.IOException;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,6 +55,8 @@ public class RelatorioProjetoMB implements Serializable{
         } catch (JRException ex) {
             Logger.getLogger(RelatorioProjetoMB.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
+            Logger.getLogger(RelatorioProjetoMB.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (SQLException ex) {
             Logger.getLogger(RelatorioProjetoMB.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "";

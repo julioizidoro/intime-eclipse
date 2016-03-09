@@ -14,6 +14,9 @@ import br.com.financemate.model.Departamento;
 import br.com.financemate.model.Subdepartamento;
 import br.com.financemate.model.Usuario;
 import br.com.financemate.util.GerarRelatorio;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,9 +25,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
+import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.ServletContext;
+
+import org.xhtmlrenderer.css.parser.property.PrimitivePropertyBuilders.Src;
+
+import com.sun.tools.xjc.reader.xmlschema.parser.LSInputSAXWrapper;
+
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -176,7 +188,7 @@ public class RelatorioAtividadesConcluidasMB implements Serializable{
     }
     
     private List<Atividades> gerarListaAtividadesConcluidas(){
-        String sql = "Select a from Atividade a where a.prazo>='" + Formatacao.ConvercaoDataSql(dataInicial) + 
+        String sql = "Select a from Atividades a where a.prazo>='" + Formatacao.ConvercaoDataSql(dataInicial) + 
                 "' and a.prazo<='" + Formatacao.ConvercaoDataSql(dataFinal) + "'  and a.situacao=1";
         if (cliente!=null){
             sql = sql + " and a.cliente.idcliente=" + cliente.getIdcliente();
@@ -216,18 +228,28 @@ public class RelatorioAtividadesConcluidasMB implements Serializable{
         return listaAtividadesBean;
     }
     
-    public void gerarRelatorioAtividadesConsluidas() throws JRException, IOException{
-        String caminhoRelatorio = "resources/report/atividades/reportatividadesconcluidas.jasper";  
-        Map parameters = new HashMap();
-        String nomeArquivo = "AtividadesConcluidas";
-        List<AtividadesConcluidasBean> lista = gerarDS();
-        parameters.put("totalatividades", lista.size());
-        parameters.put("totalhoras", calcularHorasTotal(lista));
-        AtividadesConcluidasFactory.setListaAtividades(lista);
-        JRDataSource jrds = new JRBeanCollectionDataSource(AtividadesConcluidasFactory.getListaAtividades());
-        GerarRelatorio gerarRelatorio = new GerarRelatorio();
-        gerarRelatorio.gerarRelatorioDSPDF(caminhoRelatorio, parameters, jrds, nomeArquivo);
-    }
+	public void gerarRelatorioAtividadesConsluidas() throws JRException, IOException {
+		ServletContext servletContext = (ServletContext) FacesContext.getCurrentInstance().getExternalContext()
+				.getContext();
+		String caminhoRelatorio = "/report/atividades/reportatividadesconcluidas.jasper";
+		Map parameters = new HashMap();
+		String nomeArquivo = "AtividadesConcluidas";
+		List<AtividadesConcluidasBean> lista = gerarDS();
+		if ((lista == null) || (lista.size() == 0)) {
+			FacesContext context = FacesContext.getCurrentInstance();
+        	context.addMessage(null, new FacesMessage("Relatório não possui páginas", ""));
+		} else {
+			parameters.put("totalatividades", String.valueOf(lista.size()));
+			parameters.put("totalhoras", calcularHorasTotal(lista));
+			File f = new File(servletContext.getRealPath("/report/logorelatorio.png"));
+			BufferedImage logo = ImageIO.read(f);
+			parameters.put("logo", logo);
+			AtividadesConcluidasFactory.setListaAtividades(lista);
+			JRDataSource jrds = new JRBeanCollectionDataSource(AtividadesConcluidasFactory.getListaAtividades());
+			GerarRelatorio gerarRelatorio = new GerarRelatorio();
+			gerarRelatorio.gerarRelatorioDSPDF(caminhoRelatorio, parameters, jrds, nomeArquivo);
+		}
+	}
     
     public String calcularHorasTotal(List<AtividadesConcluidasBean> lista){
         int tempo = 0;
@@ -238,22 +260,67 @@ public class RelatorioAtividadesConcluidasMB implements Serializable{
         if (tempo > 0) {
             int horas = tempo / 60;
             int minutos = tempo % 60;
-            minutos = minutos * 60;
+            int dias = horas / 24;;
+            horas = horas % 24;
+            if (dias>0){
+            	sTempo = String.valueOf(dias) + " dia(s), ";
+            }
             if (horas > 9) {
-                sTempo = String.valueOf(horas);
+                sTempo = sTempo + String.valueOf(horas);
             } else {
-                sTempo = "0" + String.valueOf(horas);
+                sTempo = sTempo + "0" + String.valueOf(horas);
             }
+            sTempo = sTempo + " horas e ";
             if (minutos > 9) {
-                sTempo = sTempo + ":" + String.valueOf(minutos);
+                sTempo = sTempo + "" + String.valueOf(minutos);
             } else {
-                sTempo = sTempo + ":0" + String.valueOf(minutos);
+                sTempo = sTempo + "0" + String.valueOf(minutos);
             }
+            sTempo = sTempo + " minutos";
         }
         return sTempo;
     }
     
     public String cancelar(){
         return null;
+    }
+    
+    public void verificarTempo(){
+    	String sql = "Select a from Atividades a";
+    	AtividadeFacade atividadeFacade = new AtividadeFacade();
+        List<Atividades> listaAtividade = atividadeFacade.lista(sql);
+        if (listaAtividade!=null){
+        	for(int i=0;i<listaAtividade.size();i++){
+        		String tempo="";
+        		if (listaAtividade.get(i).getTempo()>0){
+        			if (listaAtividade.get(i).getTempo()<60){
+        				if (listaAtividade.get(i).getTempo()<10){
+        					tempo = "00:0" + String.valueOf(listaAtividade.get(i).getTempo());
+        				}else {
+        					tempo = "00:" + String.valueOf(listaAtividade.get(i).getTempo());
+        				}
+        			}else {
+        				int horas = listaAtividade.get(i).getTempo()/60;
+        				if (horas>99){
+        					horas = 99;
+        				}
+        				int minutos =  listaAtividade.get(i).getTempo() % 60;
+        				if (horas<10){
+        					tempo = "0" + String.valueOf(horas);
+        				}else {
+        					tempo = String.valueOf(horas);
+        				}
+        				if (minutos<10){
+        					tempo = tempo + ":0" + String.valueOf(minutos);
+        				}else {
+        					tempo = tempo + ":" + String.valueOf(minutos);
+        				}
+        			}
+        			listaAtividade.get(i).setMostratempo(tempo);
+        			atividadeFacade.salvar(listaAtividade.get(i));
+        		}
+        	}
+        }
+        System.out.println("Terminou");
     }
 }

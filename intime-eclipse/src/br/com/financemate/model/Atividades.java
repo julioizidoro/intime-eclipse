@@ -86,6 +86,7 @@ public class Atividades implements Serializable {
 
     public Atividades() {
         setSituacao(false);
+        setPrioridade("3-normal");
     }
 
     public Atividades(Integer idatividades) {

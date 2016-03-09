@@ -112,4 +112,30 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#informacao#informacoes.xhtml"
   PATH="/pages/informacao/informacoes.xhtml" SHAPE="240,1377,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:11" PATH="*" SHAPE="32,1361,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:11" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="relatorioPorCliente::#pages#relatorios#relatorioPorCliente.xhtml"
+    NAME="output" PATH="/pages/relatorios/relatorioPorCliente.xhtml"
+    TARGET="rules:#pages#relatorios#relatorioPorCliente.xhtml"
+    TITLE="relatorioPorCliente" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM
+  NAME="rules:#pages#relatorios#relatorioAtividadesConcluidas.xhtml"
+  PATH="/pages/relatorios/relatorioAtividadesConcluidas.xhtml"
+  SHAPE="240,1489,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:*:12" PATH="*" SHAPE="32,1473,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:*:12" NAME="item" PATH="*" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="relatorioAtividadesConcluidas::#pages#relatorios#relatorioAtividadesConcluidas.xhtml"
+    NAME="output"
+    PATH="/pages/relatorios/relatorioAtividadesConcluidas.xhtml"
+    TARGET="rules:#pages#relatorios#relatorioAtividadesConcluidas.xhtml"
+    TITLE="relatorioAtividadesConcluidas" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#relatorios#relatorioPorCliente.xhtml"
+  PATH="/pages/relatorios/relatorioPorCliente.xhtml"
+  SHAPE="240,1601,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

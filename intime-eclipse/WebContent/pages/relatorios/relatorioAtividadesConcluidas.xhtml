@@ -46,7 +46,7 @@
            
             <p:outputLabel value="Usuário:" style="margin-left:5%"/>
             <p:selectOneMenu id="usuario" value="#{relatorioAtividadesConcluidasMB.usuario}" class="espaco2" style="width:33%"
-                             converter="UsuarioConverter" filter="true" filterMatchMode="startsWith" panelStyle="width:180px" >
+                             converter="usuarioConverter" filter="true" filterMatchMode="startsWith" panelStyle="width:180px" >
                 <f:selectItem itemLabel="Usuário" itemValue="0"   />
                 <f:selectItems value="#{relatorioAtividadesConcluidasMB.listaUsuario}" var="usuarioselecionado" itemLabel="#{usuarioselecionado.nome}" itemValue="#{usuarioselecionado}"/>
                 <f:attribute name="listaUsuario" value="#{relatorioAtividadesConcluidasMB.listaUsuario}"/>
@@ -59,7 +59,7 @@
             <p:inputMask mask="99/99/9999" value="#{relatorioAtividadesConcluidasMB.dataFinal}" style="margin-left:5%;width: 12%" title="Data Final">
                 <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
             </p:inputMask>
-            <p:commandButton icon=" ui-icon-check" value="Confirmar" style="margin-left:13.5%" class="cadastro4" action="#{relatorioAtividadesConcluidasMB.gerarRelatorioAtividadesConsluidas()}"/>  
+            <p:commandButton icon=" ui-icon-check" value="Confirmar" style="margin-left:13.5%" class="cadastro4" action="#{relatorioAtividadesConcluidasMB.gerarRelatorioAtividadesConsluidas()}" ajax="false" onclick="this.form.target='_blank'"/>  
             <p:commandButton icon=" ui-icon-close " value="Cancelar" style="margin-left:2%" class="cancelar" action="#{relatorioAtividadesConcluidasMB.cancelar()}"/> 
               <br></br><br></br>
         </h:form>
