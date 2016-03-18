@@ -183,7 +183,7 @@ public class MenuMB implements Serializable{
      
     public String processos() {
         gerarLitaNotificacao();
-        return "consProcesso";
+        return "consProcessos";
     }
 
     public String projeto() {

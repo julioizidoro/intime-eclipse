@@ -8,13 +8,7 @@
         <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
             <img src="../../resources/img/ajax-loader.gif" />
         </p:dialog>
-    <script>
-            function mudaCorCommandLink() {
-                    commandLink = document.getElementById("formMenu:menuAtividadesDia");
-                    commandLink.style.color = "white";
-                    commandLink.style.background = "#3A5795";
-                }
-    </script>
+   
     <div id="tudo" style="background: #E0EEEE">
         
         <p:growl id="growl" showDetail="true" sticky="true" />
@@ -35,24 +29,24 @@
                 <p:menuitem class="submenu" value="Relatório Atividades Concluídas" action="#{MenuMB.relatorioatividadesconcluidas()}" update="growl"/>
             </p:submenu>
 
-            <p:menuitem  class="submenu2"  icon="ui-icon-plus" style="left:5%" >
+            <p:menuitem  class="submenu2"   style="left:5%" >
                 <p:commandLink  style="margin-left:89.5%">
                     <img src="../../resources/img/logoMenu.png" alt="" width="35" height="35"/>
                 </p:commandLink>
             </p:menuitem>
-            <p:menuitem  class="submenu2"  icon="ui-icon-plus" style="">
+            <p:menuitem  class="submenu2" style="">
                 <p:commandLink style="margin-top:2%;margin-left: -22%" >
                     <p:outputLabel value="InTime" style="font-family: 'Pacifico', cursive;color: #fff;font-size: 27px"/>
                 </p:commandLink>
             </p:menuitem>
 
-            <p:menuitem  class="submenu2"  icon=" ui-icon-plus " title="Adicionar Tarefa" >
+            <p:menuitem  class="submenu2"  title="Adicionar Tarefa" >
                 <p:commandLink   action="#{AtividadeMB.novo()}" style="margin-left:74%;margin-top:0%" title="Adicionar Tarefa">
                     <img src="../../resources/img/adicionarTarefa.png" width="42" height="42"/> 
                     <p:ajax event="dialogReturn" update="@all"/>
                 </p:commandLink>
             </p:menuitem>
-            <p:menuitem  class="submenu2"  icon="ui-icon-plus" title="Tarefa Particular" >
+            <p:menuitem  class="submenu2"  title="Tarefa Particular" >
                 <p:commandLink action="#{AtividadeMB.novoParticular()}" style="margin-left: 10%;margin-top: 0%" title="Tarefa Particular">
                     <img src="../../resources/img/adicionarTarefaParticular.png" width="42" height="42"/> 
                     <p:ajax event="dialogReturn" update="@all"/>
@@ -81,7 +75,7 @@
                 </p:commandLink>
               </p:menuitem>
             
-            <p:menuitem  class="submenu2"  icon="ui-icon-plus"  title="Sair" >
+            <p:menuitem  class="submenu2"  title="Sair" >
                 <p:commandLink style="margin-left:-50%;margin-top:-75%"  styleClass="fonteUsuarioLogado" action="#{usuarioLogadoMB.deslogar()}" title="Sair" > 
                     <img src="../../resources/img/deslogar.png" width="35" height="35"/> 
                 </p:commandLink>            
@@ -90,13 +84,13 @@
 
         <h:panelGrid id="idpainelMenu" class="menu2" columns="2" style="background:#828282;color:#fff;font-family: 'Economica', sans-serif;">
             <p:outputLabel value="Minhas Tarefas" style="text-decoration: none;color: #fff;font-size:21px;" class="fonteconomica"/><br></br>
-            <p:commandLink value="#{listaAtividadesMB.ndia}"  action="#{AtividadeMB.mostarAtividadesDia()}" class="#{AtividadeMB.corMenuSelecionadoDia}" style="text-decoration: none;color: #fff" update="@all" id="menuAtividadesDia" oncomplete="mudaCorCommandLink();"/>
+            <p:commandLink value="#{listaAtividadesMB.ndia}"  action="#{AtividadeMB.mostarAtividadesDia()}" class="#{AtividadeMB.corMenuSelecionadoDia}" style="text-decoration: none;color: #fff" update="@all" />
             <br></br>
-            <p:commandLink value="#{listaAtividadesMB.nsemana}"  action="#{AtividadeMB.mostarAtividadesSemana()}" class="#{AtividadeMB.corMenuSelecionadoSemana}" style="text-decoration: none;color: #fff" update="@all" oncomplete="mudaCorCommandLink();" />
+            <p:commandLink value="#{listaAtividadesMB.nsemana}"  action="#{AtividadeMB.mostarAtividadesSemana()}" class="#{AtividadeMB.corMenuSelecionadoSemana}" style="text-decoration: none;color: #fff" update="@all" />
             <br></br>
-            <p:commandLink value="#{listaAtividadesMB.natrasada}"  action="#{AtividadeMB.mostarAtividadesAtrasadas()}" class="#{AtividadeMB.corMenuSelecionadoAtrasada}" style="text-decoration: none;color: #fff" update="@all" oncomplete="mudaCorCommandLink();"/>
+            <p:commandLink value="#{listaAtividadesMB.natrasada}"  action="#{AtividadeMB.mostarAtividadesAtrasadas()}" class="#{AtividadeMB.corMenuSelecionadoAtrasada}" style="text-decoration: none;color: #fff" update="@all" />
             <br></br>
-            <p:commandLink value="#{listaAtividadesMB.todas}"  action="#{AtividadeMB.mostarTodasAtividades()}" class="#{AtividadeMB.corMenuSelecionadoTodas}" style="text-decoration: none;color: #fff" update="@all" oncomplete="mudaCorCommandLink();" />
+            <p:commandLink value="#{listaAtividadesMB.todas}"  action="#{AtividadeMB.mostarTodasAtividades()}" class="#{AtividadeMB.corMenuSelecionadoTodas}" style="text-decoration: none;color: #fff" update="@all" />
             <br></br>
             <p:commandLink id="menu_informacao" value="Informações"  action="#{MenuMB.informacao()}" class="fonteconomica" style="text-decoration: none;color: #fff"/>
             <br></br><br></br>

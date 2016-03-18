@@ -2,6 +2,7 @@ package br.com.financemate.manageBean.atividades;
 
 
 import br.com.financemate.bean.Formatacao;
+import br.com.financemate.bean.relatorios.AtividadesConcluidasBean;
 import br.com.financemate.facade.AtividadeFacade;
 import br.com.financemate.facade.ComentariosFacade;
 import br.com.financemate.facade.NotificacaoFacade;
@@ -403,6 +404,8 @@ public class AtividadeMB implements Serializable {
         menuMB.gerarLitaNotificacao();
         listaAtividadesGeral = listaAtividadesMB.getListaAtividadedia();
         listaAtividadesMB.setAtividadeMenu("dia");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         titulo="Hoje " + Formatacao.ConvercaoDataIntime(new Date());
         retornarCorMenu();
         if (listaAtividadesMB.isMostrar()){
@@ -415,6 +418,8 @@ public class AtividadeMB implements Serializable {
         menuMB.gerarLitaNotificacao();
         listaAtividadesGeral = listaAtividadesMB.getListaAtividadeSemana();
         listaAtividadesMB.setAtividadeMenu("semana");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         Date data = Formatacao.SomarDiasData(new Date(), 7);
         titulo="Semana ";
         retornarCorMenu();
@@ -428,6 +433,8 @@ public class AtividadeMB implements Serializable {
         menuMB.gerarLitaNotificacao();
         listaAtividadesGeral = listaAtividadesMB.getListaAtividadeAtrasada();
         listaAtividadesMB.setAtividadeMenu("atrasada");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
          titulo="Atrasadas";
          retornarCorMenu();
         if (listaAtividadesMB.isMostrar()){
@@ -440,6 +447,8 @@ public class AtividadeMB implements Serializable {
         menuMB.gerarLitaNotificacao();
         listaAtividadesGeral = listaAtividadesMB.getListaAtividadeTodas();
         listaAtividadesMB.setAtividadeMenu("todas");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         titulo="Todas";
         retornarCorMenu();
         if (listaAtividadesMB.isMostrar()){
@@ -469,6 +478,8 @@ public class AtividadeMB implements Serializable {
         menuMB.gerarLitaNotificacao();
         listaAtividadesGeral = listaAtividadesMB.getListaAtividadesAmanha();
         listaAtividadesMB.setAtividadeMenu("amanha");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         Date data = Formatacao.SomarDiasData(new Date(), 1);
         titulo="Amanhã " + Formatacao.ConvercaoDataIntime(data);
         retornarCorMenu();
@@ -485,6 +496,8 @@ public class AtividadeMB implements Serializable {
         Date data = new Date();
         data = Formatacao.SomarDiasData(data, 2);
         listaAtividadesMB.setAtividadeMenu("dois");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         titulo=Formatacao.diaSemanaEscrito(data) + " " + Formatacao.ConvercaoDataIntime(data);
         retornarCorMenu();
         if (listaAtividadesMB.isMostrar()){
@@ -501,6 +514,8 @@ public class AtividadeMB implements Serializable {
         Date data = new Date();
         data = Formatacao.SomarDiasData(data, 3);
         listaAtividadesMB.setAtividadeMenu("tres");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         titulo=Formatacao.diaSemanaEscrito(data) + " " + Formatacao.ConvercaoDataIntime(data);
         retornarCorMenu();
         if (listaAtividadesMB.isMostrar()){
@@ -516,6 +531,8 @@ public class AtividadeMB implements Serializable {
         Date data = new Date();
         data = Formatacao.SomarDiasData(data, 4);
         listaAtividadesMB.setAtividadeMenu("quatro");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         titulo=Formatacao.diaSemanaEscrito(data) + " " +  Formatacao.ConvercaoDataIntime(data);
         retornarCorMenu();
         if (listaAtividadesMB.isMostrar()){
@@ -531,6 +548,8 @@ public class AtividadeMB implements Serializable {
         Date data = new Date();
         data = Formatacao.SomarDiasData(data, 5);
         listaAtividadesMB.setAtividadeMenu("cinco");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         titulo=Formatacao.diaSemanaEscrito(data) + " " +  Formatacao.ConvercaoDataIntime(data);
         retornarCorMenu();
         if (listaAtividadesMB.isMostrar()){
@@ -547,6 +566,8 @@ public class AtividadeMB implements Serializable {
         Date data = new Date();
         data = Formatacao.SomarDiasData(data, 6);
         listaAtividadesMB.setAtividadeMenu("seis");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         titulo=Formatacao.diaSemanaEscrito(data) + " " +  Formatacao.ConvercaoDataIntime(data);
         retornarCorMenu();
         if (listaAtividadesMB.isMostrar()){
@@ -563,6 +584,8 @@ public class AtividadeMB implements Serializable {
         Date data = new Date();
         data = Formatacao.SomarDiasData(data, 7);
         listaAtividadesMB.setAtividadeMenu("sete");
+        listaAtividadesMB.gerarLitaAtividades();
+        menuMB.gerarLitaNotificacao();
         titulo=Formatacao.diaSemanaEscrito(data) + " " +  Formatacao.ConvercaoDataIntime(data);
         retornarCorMenu();
         if (listaAtividadesMB.isMostrar()){
@@ -722,15 +745,7 @@ public class AtividadeMB implements Serializable {
                 int tempoAtual = listaAtividadesGeral.get(nlinha).getTempo();
                 tempo = tempo + tempoAtual;
                 listaAtividadesGeral.get(nlinha).setTempo(tempo);
-                int hora = tempo/60;
-                int minutos = tempo - hora;
-                String sHora;
-                if (hora>9){
-                    sHora = String.valueOf(hora) + ":";
-                }else sHora = "0" + String.valueOf(hora) + ":";
-                if (minutos>9){
-                    sHora = sHora + String.valueOf(minutos);
-                }else sHora = sHora + "0" + String.valueOf(minutos);
+                String sHora = calcularHorasTotal(tempo);
                 listaAtividadesGeral.get(nlinha).setMostratempo(sHora);
                 listaAtividadesGeral.get(nlinha).setEstado("Play");
                 atividadeFacade.salvar(listaAtividadesGeral.get(nlinha));
@@ -747,6 +762,26 @@ public class AtividadeMB implements Serializable {
         }  else {
             return "../../resources/img/pauseI.png";
         }
+    }
+    
+    public String calcularHorasTotal(int tempo){
+    	String sTempo = "";
+        if (tempo > 0) {
+            int horas = tempo / 60;
+            int minutos = tempo % 60;
+            if (horas > 9) {
+                sTempo = sTempo + String.valueOf(horas);
+            } else {
+                sTempo = sTempo + "0" + String.valueOf(horas);
+            }
+            sTempo = sTempo + ":";
+            if (minutos > 9) {
+                sTempo = sTempo + "" + String.valueOf(minutos);
+            } else {
+                sTempo = sTempo + "0" + String.valueOf(minutos);
+            }
+        }
+        return sTempo;
     }
     
     public String atrasadas(Atividades atividade) {
@@ -1011,40 +1046,172 @@ public class AtividadeMB implements Serializable {
             if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("dia")) {
                 corMenuSelecionadoDia="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             } else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("semana")) {
                corMenuSelecionadoSemana="fonteconomica2";
                corMenuSituacao="fonteconomica";
+               corMenuSelecionadoDia="fonteconomica";
+               corMenuSelecionadoAtrasada="fonteconomica";
+               corMenuSelecionadoAmanha="fonteconomica";
+               corMenuSelecionadoTodas="fonteconomica";
+               corMenuSelecionadoDois="fonteconomica";
+               corMenuSelecionadoTres="fonteconomica";
+               corMenuSelecionadoQuatro="fonteconomica";
+               corMenuSelecionadoCinco="fonteconomica";
+               corMenuSelecionadoSeis="fonteconomica";
+               corMenuSelecionadoSete="fonteconomica";
+               corMenuSelecionadoDepartamento="fonteconomica";
             } else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("atrasada")) {
                 corMenuSelecionadoAtrasada="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             } else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("amanha")) {
                 corMenuSelecionadoAmanha="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             }else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("todas")){
                 corMenuSelecionadoTodas="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             }
             else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("dois")){
                 corMenuSelecionadoDois="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             }else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("tres")){
                 corMenuSelecionadoTres="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             }else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("quatro")){
                 corMenuSelecionadoQuatro="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             }else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("cinco")){
                 corMenuSelecionadoCinco="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             }else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("seis")){
                 corMenuSelecionadoSeis="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             }else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("sete")){
                 corMenuSelecionadoSete="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoDepartamento="fonteconomica";
             }else if (listaAtividadesMB.getAtividadeMenu().equalsIgnoreCase("departamento")){
                 corMenuSelecionadoDepartamento="fonteconomica2";
                 corMenuSituacao="fonteconomica";
+                corMenuSelecionadoDia="fonteconomica";
+                corMenuSelecionadoSemana="fonteconomica";
+                corMenuSelecionadoAtrasada="fonteconomica";
+                corMenuSelecionadoAmanha="fonteconomica";
+                corMenuSelecionadoTodas="fonteconomica";
+                corMenuSelecionadoDois="fonteconomica";
+                corMenuSelecionadoTres="fonteconomica";
+                corMenuSelecionadoQuatro="fonteconomica";
+                corMenuSelecionadoCinco="fonteconomica";
+                corMenuSelecionadoSeis="fonteconomica";
+                corMenuSelecionadoSete="fonteconomica";
             }else {
                 corMenuSelecionadoDia="fonteconomica";
                 corMenuSelecionadoSemana="fonteconomica";

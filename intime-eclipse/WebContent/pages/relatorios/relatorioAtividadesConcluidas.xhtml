@@ -21,42 +21,38 @@
             </p:dialog>
             <p:growl id="growl" showDetail="true" sticky="true" />
             <title>Relatório</title>
-            <p:outputLabel value="Departamento:"/>
-            <p:selectOneMenu id="iddepartamento" value="#{relatorioAtividadesConcluidasMB.departamento}" style="width:26%;font-size: 10px" class="espacocampos2" 
+            <p:selectOneMenu id="iddepartamento" value="#{relatorioAtividadesConcluidasMB.departamento}" style="width:29%;margin-left:8%" 
                              converter="departamentoConverter" filter="true" filterMatchMode="startsWith" panelStyle="width:180px" >
                 <f:selectItem itemLabel="Departamento" itemValue="0" noSelectionOption="true"/> 
                 <f:selectItems id="iddepartamentoescolhido" value="#{relatorioAtividadesConcluidasMB.listaDepartamento}" var="cdepartamento" itemLabel="#{cdepartamento.nome}" itemValue="#{cdepartamento}"/>
                 <f:attribute name="listaDepartamento" value="#{relatorioAtividadesConcluidasMB.listaDepartamento}"/>
                 <p:ajax event="change" update="subdepartamento"/> 
             </p:selectOneMenu>
-            <p:selectOneMenu id="subdepartamento" value="#{relatorioAtividadesConcluidasMB.subdepartamento}" class="espaco1" style="width:12%"
+            <p:selectOneMenu id="subdepartamento" value="#{relatorioAtividadesConcluidasMB.subdepartamento}"  style="width:33%;margin-left:6%"
                                          converter="subDepartamentoConverter" filter="true" filterMatchMode="startsWith" panelStyle="width:180px" >
                            <f:selectItem itemLabel="Sub-Departamento" itemValue="0"   />
                            <f:selectItems value="#{relatorioAtividadesConcluidasMB.departamento.subdepartamentoList}" var="subdepartamentoSelecionado" itemLabel="#{subdepartamentoSelecionado.nome}" itemValue="#{subdepartamentoSelecionado}"/>
                            <f:attribute name="listaSubDepartamento" value="#{relatorioAtividadesConcluidasMB.departamento.subdepartamentoList}"/>
             </p:selectOneMenu>
              <br></br><br></br><br></br>
-             <p:outputLabel value="Cliente:" style="margin-left:6%"/>
-             <p:selectOneMenu value="#{relatorioAtividadesConcluidasMB.cliente}" style="width:29%" class="espaco2"
+             <p:selectOneMenu value="#{relatorioAtividadesConcluidasMB.cliente}" style="width:29%;margin-left:8%" class="espaco2"
                              converter="ClienteConverter" filter="true" filterMatchMode="startsWith" panelStyle="width:180px" >
                 <f:selectItem itemLabel="Cliente" itemValue="0"   />
                 <f:selectItems value="#{relatorioAtividadesConcluidasMB.listaCliente}" var="clienteSelecionado" itemLabel="#{clienteSelecionado.nomefantasia}" itemValue="#{clienteSelecionado}"/>
                 <f:attribute name="listaCliente" value="#{relatorioAtividadesConcluidasMB.listaCliente}"/>
             </p:selectOneMenu>
            
-            <p:outputLabel value="Usuário:" style="margin-left:5%"/>
-            <p:selectOneMenu id="usuario" value="#{relatorioAtividadesConcluidasMB.usuario}" class="espaco2" style="width:33%"
+            <p:selectOneMenu id="usuario" value="#{relatorioAtividadesConcluidasMB.usuario}"  style="width:33%;margin-left:6%"
                              converter="usuarioConverter" filter="true" filterMatchMode="startsWith" panelStyle="width:180px" >
                 <f:selectItem itemLabel="Usuário" itemValue="0"   />
                 <f:selectItems value="#{relatorioAtividadesConcluidasMB.listaUsuario}" var="usuarioselecionado" itemLabel="#{usuarioselecionado.nome}" itemValue="#{usuarioselecionado}"/>
                 <f:attribute name="listaUsuario" value="#{relatorioAtividadesConcluidasMB.listaUsuario}"/>
             </p:selectOneMenu>
             <br></br><br></br><br></br>
-            <p:outputLabel value="Período:" style="margin-left:5.5%"/>
-            <p:inputMask mask="99/99/9999" value="#{relatorioAtividadesConcluidasMB.dataInicial}" style="margin-left:2%;width: 12%" title="Data Inícial">
+            <p:inputMask mask="99/99/9999" placeholder="Data Inícial" value="#{relatorioAtividadesConcluidasMB.dataInicial}" style="margin-left:8%;width: 12%" title="Data Inícial">
                 <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
             </p:inputMask>
-            <p:inputMask mask="99/99/9999" value="#{relatorioAtividadesConcluidasMB.dataFinal}" style="margin-left:5%;width: 12%" title="Data Final">
+            <p:inputMask mask="99/99/9999" placeholder="Data Final" value="#{relatorioAtividadesConcluidasMB.dataFinal}" style="margin-left:5%;width: 12%" title="Data Final">
                 <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
             </p:inputMask>
             <p:commandButton icon=" ui-icon-check" value="Confirmar" style="margin-left:13.5%" class="cadastro4" action="#{relatorioAtividadesConcluidasMB.gerarRelatorioAtividadesConsluidas()}" ajax="false" onclick="this.form.target='_blank'"/>  

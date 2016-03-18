@@ -27,20 +27,20 @@
                 <p:inputMask id="prazo" size="10" mask="99/99/9999"  maxlength="14" class="espaco5dois" value="#{cadAtividadeMB.atividades.prazo}" >
                     <f:convertDateTime   pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
                 </p:inputMask>
-                <p:selectOneMenu value="#{cadAtividadeMB.cliente}" style="width:340px;margin-left:17%" 
+                <p:selectOneMenu value="#{cadAtividadeMB.cliente}" style="width:368px;margin-left:5%" 
                                  converter="ClienteConverter" filter="true" filterMatchMode="startsWith" panelStyle="width:180px" >
                     <f:selectItems value="#{listaAtividadesMB.listaCliente}" var="clienteSelecionado" itemLabel="#{clienteSelecionado.nomefantasia}" itemValue="#{clienteSelecionado}"/>
                     <f:attribute name="listaCliente" value="#{listaAtividadesMB.listaCliente}"/>
                 </p:selectOneMenu>
             </h:panelGrid>
             <br></br>
-            <p:selectOneMenu id="departamento" value="#{cadAtividadeMB.departamento}" style="width:41%;margin-left:2%"
+            <p:selectOneMenu id="departamento" value="#{cadAtividadeMB.departamento}" style="width:40.5%;margin-left:2%"
                              converter="departamentoConverter" filter="true" filterMatchMode="startsWith" panelStyle="width:180px" >
                 <f:selectItems value="#{listaAtividadesMB.listaDepartamento}" var="departamento" itemLabel="#{departamento.nome}" itemValue="#{departamento}"/>
                 <f:attribute name="listaDepartamento" value="#{listaAtividadesMB.listaDepartamento}"/>
                 <p:ajax event="change" update="subdepartamento" />
             </p:selectOneMenu>
-            <p:selectOneMenu id="subdepartamento" value="#{cadAtividadeMB.subdepartamento}" style="width:41%;margin-left:11%"
+            <p:selectOneMenu id="subdepartamento" value="#{cadAtividadeMB.subdepartamento}" style="width:32%;margin-left:11%"
                              converter="subDepartamentoConverter" filter="true" filterMatchMode="startsWith" panelStyle="width:180px" >
                 <f:selectItems value="#{cadAtividadeMB.departamento.subdepartamentoList}" var="subdepartamentoSelecionado" itemLabel="#{subdepartamentoSelecionado.nome}" itemValue="#{subdepartamentoSelecionado}"/>
                 <f:attribute name="listaSubDepartamento" value="#{cadAtividadeMB.departamento.subdepartamentoList}"/>

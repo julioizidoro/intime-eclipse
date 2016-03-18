@@ -21,17 +21,17 @@
             </p:dialog>
             <p:growl id="growl" showDetail="true" sticky="true" />
             <title>Relatório</title>
-            <p:outputLabel value="Cliente:" style="margin-left:6%"/>
-            <p:selectOneMenu value="#{relatorioMB.idCliente}" style="width:35%;margin-left:1.3%" class="espaco2">
+            <p:selectOneMenu value="#{relatorioMB.idCliente}" style="width:26%;margin-left:5%" class="espaco2">
                 <f:selectItem itemLabel="Cliente" itemValue="0"   />
                 <f:selectItems value="#{relatorioMB.listaCliente}" var="clienteSelecionado" itemLabel="#{clienteSelecionado.nomefantasia}" itemValue="#{clienteSelecionado.idcliente}"/>
             </p:selectOneMenu>
-            <p:outputLabel value="Período:" style="margin-left:4%"/>
-            <p:inputMask mask="99/99/9999" value="#{relatorioMB.dataInicial}" style="margin-left: 1%;width: 12%" title="Data Inícial"/>
-            <p:inputMask mask="99/99/9999" value="#{relatorioMB.dataFinal}" style="margin-left:5%;width: 12%" title="Data Final"/>
+            <p:inputMask mask="99/99/9999" value="#{relatorioMB.dataInicial}" style="margin-left:5%;width: 12%" placeholder="Data Inícial"/>
+            <p:inputMask mask="99/99/9999" value="#{relatorioMB.dataFinal}" style="margin-left:5%;width: 12%" placeholder="Data Final"/>
+            
+            
+            <p:inputMask mask="99/99/9999" value="#{relatorioMB.dataFinal}" style="margin-left:5%;width:15%" placeholder="Data Conclusão"/>
             <br></br><br></br><br></br>
-            <p:outputLabel value="Departamento:"/>
-            <p:selectOneMenu id="departamento" value="#{relatorioMB.idDepartamento}" style="width:30%;margin-left:1%">
+            <p:selectOneMenu id="departamento" value="#{relatorioMB.idDepartamento}" style="width:35%;margin-left:5%">
                 <f:selectItem itemLabel="Departamento" itemValue="0"   />
                 <f:selectItems value="#{relatorioMB.listaDepartamento}" var="departamento" itemLabel="#{departamento.nome}" itemValue="#{departamento.iddepartamento}"/>
             </p:selectOneMenu>

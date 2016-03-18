@@ -81,7 +81,7 @@
 		<from-view-id>*</from-view-id>
 		<navigation-case>
 			<from-outcome>consProcessos</from-outcome>
-			<to-view-id>/pages/processos/consProcessos.xhtml</to-view-id>
+			<to-view-id>/pages/processo/consProcesso.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>

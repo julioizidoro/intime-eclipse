@@ -35,7 +35,6 @@ import javax.servlet.ServletContext;
 
 import org.xhtmlrenderer.css.parser.property.PrimitivePropertyBuilders.Src;
 
-import com.sun.tools.xjc.reader.xmlschema.parser.LSInputSAXWrapper;
 
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
@@ -270,13 +269,12 @@ public class RelatorioAtividadesConcluidasMB implements Serializable{
             } else {
                 sTempo = sTempo + "0" + String.valueOf(horas);
             }
-            sTempo = sTempo + " horas e ";
+            sTempo = sTempo + ":";
             if (minutos > 9) {
                 sTempo = sTempo + "" + String.valueOf(minutos);
             } else {
                 sTempo = sTempo + "0" + String.valueOf(minutos);
             }
-            sTempo = sTempo + " minutos";
         }
         return sTempo;
     }
